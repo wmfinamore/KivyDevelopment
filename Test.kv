@@ -2,9 +2,9 @@
 <Interface>:
 #root
 Interface:
-    Label:
-        markup: True
-        text: "Hello [b]World[/b]!" # b = bold
-        pos: dp(200), dp(300) #position
-        size: 100,200
-        font_size: 20
+    TextInput:
+        pos: 100,100
+        size: 200,100
+        multiline: False
+        text: "Name here"
+        on_text_validate: root.On_Enter_Pressed() # function defined in main.py file in Interface(root) class

@@ -4,7 +4,8 @@ from kivy.uix.widget import Widget
 
 # interface
 class Interface(Widget):
-    pass
+    def On_Enter_Pressed(self):
+        print("Enter Has Been Pressed! \n Boom You have made some progress in Logics")
 
 
 # app creation
