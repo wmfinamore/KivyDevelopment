@@ -1,13 +1,23 @@
 #rule
 <Interface>:
 #root
-Interface: # Now, is a BoxLayout
-    orientation: "vertical" # default is horizontal
+Interface: # Now, is a GridLayout
+    rows: 2
+    row_force_default: True
+    row_default_height: 40 #change default height in each row
+    spacing: [4,0] #space between each widgets[vertical, horizontal]
+    padding: [40, 40, 40, 40] #space between widgets and layout border[left,top, right, bottom ]
+    orientation: 'rl-bt' #right left - bottom top
     Button:
         text: "1"
+        #size_hint: 0.25, 1 #percentage horizontal, percentage vertical
+        size_hint: None, 1
+        size: 100, 1
     Button:
         text: "2"
-        size_hint: 1, 0.50
     Button:
         text: "3"
-        size_hint: 1, 0.50
+        size_hint: None, 1
+        size: 100, 1
+    Button:
+        text: "4"
