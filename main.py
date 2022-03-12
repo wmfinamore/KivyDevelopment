@@ -1,9 +1,9 @@
 from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
+from kivy.uix.anchorlayout import AnchorLayout
 
 
 # interface
-class Interface(GridLayout):
+class Interface(AnchorLayout):
     pass
 
 
