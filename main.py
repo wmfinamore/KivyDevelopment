@@ -1,11 +1,10 @@
 from kivy.app import App
-from kivy.uix.widget import Widget
+from kivy.uix.boxlayout import BoxLayout
 
 
 # interface
-class Interface(Widget):
-    def On_Enter_Pressed(self):
-        print("Enter Has Been Pressed! \n Boom You have made some progress in Logics")
+class Interface(BoxLayout):
+    pass
 
 
 # app creation
