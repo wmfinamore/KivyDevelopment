@@ -5,11 +5,15 @@ from kivy.uix.stacklayout import StackLayout
 
 
 # interface
-class Inti(FloatLayout):
+class Interface(FloatLayout):
     pass
 
 
-class stackInterface(StackLayout):
+class Scroller():
+    pass
+
+
+class StackInterface(StackLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         for i in range(100):

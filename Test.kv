@@ -1,5 +1,20 @@
+Scroller_Func:
+
+
+<Scroller_Func@ScrollView>
+    #properties
+    bar_margin: 5
+    bar_color: 0.3, 0.4, 0.5, 1
+    bar_width: 10
+    bar_inactive_color: 1,0,0,1
+    StackInterface:
+        size_hint: 1, None
+        height: self.minimum_height
+
+
 #root(class behaviors)
-stackInterface:
+#stackInterface:
 
 #rule(class properties)
-<stackInterface>: # Now, is a StackLayout
+<StackInterface>: # Now, is a StackLayout
+    padding: [40, 0, 40, 40]
