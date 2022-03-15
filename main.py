@@ -4,12 +4,16 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.stacklayout import StackLayout
 
 
+class Relative_Practice(FloatLayout):
+    pass
+
+
 # interface
 class Interface(FloatLayout):
     pass
 
 
-class Scroller():
+class Scroller_Func():
     pass
 
 
