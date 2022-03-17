@@ -1,7 +1,40 @@
 from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.pagelayout import PageLayout
 from kivy.uix.stacklayout import StackLayout
+
+
+class Page_Layout(PageLayout):
+    pass
+
+
+class Page_1(BoxLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        b1 = Button(text="Hello", background_color=(.3, .4, .5, 1))
+        b2 = Button(text="World!", background_color=(.3, .4, .5, 1))
+        self.add_widget(b1)
+        self.add_widget(b2)
+
+
+class Page_2(BoxLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        b1 = Button(text="Hello", background_color=(.6, .7, .8, 1))
+        b2 = Button(text="World!", background_color=(.6, .7, .8, 1))
+        self.add_widget(b1)
+        self.add_widget(b2)
+
+
+class Page_3(BoxLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        b1 = Button(text="Hello", background_color=(.2, .3, .4, 1))
+        b2 = Button(text="World!", background_color=(.2, .3, .4, 1))
+        self.add_widget(b1)
+        self.add_widget(b2)
 
 
 class Relative_Practice(FloatLayout):
