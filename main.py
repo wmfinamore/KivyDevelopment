@@ -6,6 +6,14 @@ from kivy.uix.pagelayout import PageLayout
 from kivy.uix.stacklayout import StackLayout
 
 
+class LogicalInterface(BoxLayout):
+    def OnPressing(self):
+        print("Hello World!")
+
+    def OnReleasing(self):
+        print("Don't Go!")
+
+
 class Page_Layout(PageLayout):
     pass
 
