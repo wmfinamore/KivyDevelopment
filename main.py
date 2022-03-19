@@ -7,11 +7,14 @@ from kivy.uix.stacklayout import StackLayout
 
 
 class LogicalInterface(BoxLayout):
-    def OnPressing(self):
+    def OnPressing(self, ID):
         print("Hello World!")
+        ID.text = "Welcome"
 
-    def OnReleasing(self):
+    def OnReleasing(self, ID):
         print("Don't Go!")
+        ID.text = "Hello World!"
+        ID.font_size = 40
 
 
 class Page_Layout(PageLayout):

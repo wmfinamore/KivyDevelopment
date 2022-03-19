@@ -3,8 +3,11 @@ LogicalInterface:
 <LogicalInterface>:
     Button:
         text: "Press Me"
-        on_press: root.OnPressing()
-        on_release: root.OnReleasing()
+        on_press: root.OnPressing(label)
+        on_release: root.OnReleasing(label)
+    Label:
+        id: label
+        text: "Hello World!"
 
 
 <Page_Layout>:
