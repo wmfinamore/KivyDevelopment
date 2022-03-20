@@ -7,14 +7,16 @@ from kivy.uix.stacklayout import StackLayout
 
 
 class LogicalInterface(BoxLayout):
-    def OnPressing(self, ID): # ID From Test.kv
+    def OnPressing(self, ID, input): # ID From Test.kv
         print("Hello World!")
-        ID.text = "Welcome" # access widget property using ID passed in the function
+        cal = eval(input.text)
+        # ID.text = "Welcome" # access widget property using ID passed in the function
+        ID.text = str(cal)
 
-    def OnReleasing(self, ID): # ID From Test.kv
+    def OnReleasing(self, ID, input): # ID From Test.kv
         print("Don't Go!")
-        ID.text = "Hello World!" # access widget property using ID passed in the function
-        ID.font_size = 40 # access widget property using ID passed in the function
+        # ID.text = "Hello World!" # access widget property using ID passed in the function
+        # ID.font_size = 40 # access widget property using ID passed in the function
 
 
 class Page_Layout(PageLayout):

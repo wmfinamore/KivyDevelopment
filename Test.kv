@@ -1,13 +1,18 @@
 LogicalInterface:
 
 <LogicalInterface>:
+    orientation: "vertical"
     Button:
         text: "Press Me"
-        on_press: root.OnPressing(label)
-        on_release: root.OnReleasing(label)
+        on_press: root.OnPressing(label, input)
+        on_release: root.OnReleasing(label, input)
     Label:
         id: label
         text: "Hello World!"
+    TextInput:
+        id: input
+        multiline: False
+        text: "Please Enter Your Equation"
 
 
 <Page_Layout>:
