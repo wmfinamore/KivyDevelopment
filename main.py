@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivy.properties import StringProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
@@ -6,17 +7,22 @@ from kivy.uix.pagelayout import PageLayout
 from kivy.uix.stacklayout import StackLayout
 
 
+class Variables(BoxLayout):
+    _text_=StringProperty("Hello World")
+
+    def pressing(self):
+        self._text_ = "Welcome"
+
+
 class LogicalInterface(BoxLayout):
     def OnPressing(self, ID, input): # ID From Test.kv
         print("Hello World!")
         cal = eval(input.text)
-        # ID.text = "Welcome" # access widget property using ID passed in the function
         ID.text = str(cal)
 
     def OnReleasing(self, ID, input): # ID From Test.kv
         print("Don't Go!")
-        # ID.text = "Hello World!" # access widget property using ID passed in the function
-        # ID.font_size = 40 # access widget property using ID passed in the function
+
 
 
 class Page_Layout(PageLayout):

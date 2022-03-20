@@ -1,4 +1,12 @@
-LogicalInterface:
+Variables:
+
+<Variables>:
+    #: set txt 40 # declaration variable in kivy language (set {variable} {value})
+    Button:
+        on_press: root.pressing()
+    Label:
+        text: root._text_
+        font_size: txt
 
 <LogicalInterface>:
     orientation: "vertical"
