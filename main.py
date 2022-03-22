@@ -10,8 +10,8 @@ from kivy.uix.stacklayout import StackLayout
 class Variables(BoxLayout):
     _text_=StringProperty("Hello World")
 
-    def pressing(self):
-        self._text_ = "Welcome"
+    def pressing(self, btn):
+        btn.text = "We have changed this text with help of self"
 
 
 class LogicalInterface(BoxLayout):

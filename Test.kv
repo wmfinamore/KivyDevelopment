@@ -2,8 +2,10 @@ Variables:
 
 <Variables>:
     #: set txt 40 # declaration variable in kivy language (set {variable} {value})
+    anything: "Welcome To Root"
     Button:
-        on_press: root.pressing()
+        text: root.anything
+        on_press: root.pressing(self)
     Label:
         text: root._text_
         font_size: txt
