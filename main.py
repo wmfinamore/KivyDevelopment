@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
@@ -7,8 +8,15 @@ from kivy.uix.pagelayout import PageLayout
 from kivy.uix.stacklayout import StackLayout
 
 
+Builder.load_file('other.kv')
+
+
+class ExternalKivy(BoxLayout):
+    pass
+
+
 class Variables(BoxLayout):
-    _text_=StringProperty("Hello World")
+    _text_ = StringProperty("Hello World")
 
     def pressing(self, btn):
         btn.text = "We have changed this text with help of self"
@@ -79,7 +87,8 @@ class StackInterface(StackLayout):
 
 # app creation
 class TestApp(App):
-    pass
+    def build(self):
+        return ExternalKivy()
 
 
 TestApp().run()
