@@ -8,7 +8,12 @@ from kivy.uix.pagelayout import PageLayout
 from kivy.uix.stacklayout import StackLayout
 
 
-Builder.load_file('other.kv')
+Builder.load_string("""
+<ExternalKivy>:
+    Button:
+        text: "Hello"
+        background_color: 1,0,0,1
+""")
 
 
 class ExternalKivy(BoxLayout):
