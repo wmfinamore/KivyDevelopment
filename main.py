@@ -104,13 +104,14 @@ class Binding(BoxLayout):
 class Buttons(StackLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        for i in range(100):
-            b1=Button(text=str(i+1), size_hint=(None, None), size=(100,100))
-            self.add_widget(b1)
 
 
 class Game(BoxLayout):
-    pass
+    def create_btn(self):
+        print("Button Created")
+
+    def remove_btn(self):
+        print("Button Removed")
 
 
 # app creation
