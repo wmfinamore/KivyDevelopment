@@ -101,10 +101,21 @@ class Binding(BoxLayout):
         print("Hello World")
 
 
+class Buttons(StackLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        for i in range(100):
+            b1=Button(text=str(i+1), size_hint=(None, None), size=(100,100))
+            self.add_widget(b1)
+
+
+class Game(BoxLayout):
+    pass
+
+
 # app creation
 class TestApp(App):
-    def build(self):
-        return Binding()
+    pass
 
 
 TestApp().run()
