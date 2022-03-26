@@ -7,7 +7,6 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.pagelayout import PageLayout
 from kivy.uix.stacklayout import StackLayout
 
-
 Builder.load_string("""
 <ExternalKivy>:
     Button:
@@ -28,14 +27,13 @@ class Variables(BoxLayout):
 
 
 class LogicalInterface(BoxLayout):
-    def OnPressing(self, ID, input): # ID From Test.kv
+    def OnPressing(self, ID, input):  # ID From Test.kv
         print("Hello World!")
         cal = eval(input.text)
         ID.text = str(cal)
 
-    def OnReleasing(self, ID, input): # ID From Test.kv
+    def OnReleasing(self, ID, input):  # ID From Test.kv
         print("Don't Go!")
-
 
 
 class Page_Layout(PageLayout):
@@ -86,7 +84,7 @@ class StackInterface(StackLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         for i in range(100):
-            b1 = Button(text=str(i+1), size_hint=(None, None), size=(100, 100))
+            b1 = Button(text=str(i + 1), size_hint=(None, None), size=(100, 100))
             self.add_widget(b1)
 
 
@@ -107,14 +105,23 @@ class Buttons(StackLayout):
 
 
 class Game(BoxLayout):
+    btn_list = []
+    i = 0
+
     def create_btn(self, stacker):
         btn = Button(text="h", size_hint=(None, None), size=(100, 100))
+        self.btn_list.append(btn)
         # ids is a collection of all ids
-        self.ids.stacker.add_widget(btn)
-        print("Button Created")
+        self.ids.stacker.add_widget(self.btn_list[self.i])
+        print("Button {} Created".format(self.i))
+        self.i += 1
 
     def remove_btn(self, stacker):
-        print("Button Removed")
+        if self.i > 0:
+            self.ids.stacker.remove_widget(self.btn_list[self.i-1])
+            print("Button {} Removed".format(self.i-1))
+            if self.i-1 >= 0:
+                self.i -= 1
 
 
 # app creation
