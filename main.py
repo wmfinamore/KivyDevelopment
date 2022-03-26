@@ -6,6 +6,7 @@ from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.pagelayout import PageLayout
 from kivy.uix.stacklayout import StackLayout
+import random
 
 Builder.load_string("""
 <ExternalKivy>:
@@ -109,7 +110,14 @@ class Game(BoxLayout):
     i = 0
 
     def create_btn(self, stacker):
-        btn = Button(text="h", size_hint=(None, None), size=(100, 100))
+        r = random.randint(1, 10)
+        g = random.randint(1, 10)
+        b = random.randint(1, 10)
+        R = r/10
+        G = g/10
+        B = b/10
+        btn = Button(text="Button {}".format(self.i), size_hint=(None, None), size=(100, 100),
+                     background_color=(R, G, B), background_normal="", font_size=20)
         self.btn_list.append(btn)
         # ids is a collection of all ids
         self.ids.stacker.add_widget(self.btn_list[self.i])
