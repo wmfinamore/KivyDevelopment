@@ -107,10 +107,13 @@ class Buttons(StackLayout):
 
 
 class Game(BoxLayout):
-    def create_btn(self):
+    def create_btn(self, stacker):
+        btn = Button(text="h", size_hint=(None, None), size=(100, 100))
+        # ids is a collection of all ids
+        self.ids.stacker.add_widget(btn)
         print("Button Created")
 
-    def remove_btn(self):
+    def remove_btn(self, stacker):
         print("Button Removed")
 
 
