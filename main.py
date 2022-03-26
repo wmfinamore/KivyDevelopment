@@ -109,7 +109,7 @@ class Game(BoxLayout):
     btn_list = []
     i = 0
 
-    def create_btn(self, stacker):
+    def create_btn(self):
         r = random.randint(1, 10)
         g = random.randint(1, 10)
         b = random.randint(1, 10)
@@ -124,7 +124,7 @@ class Game(BoxLayout):
         print("Button {} Created".format(self.i))
         self.i += 1
 
-    def remove_btn(self, stacker):
+    def remove_btn(self):
         if self.i > 0:
             self.ids.stacker.remove_widget(self.btn_list[self.i-1])
             print("Button {} Removed".format(self.i-1))
