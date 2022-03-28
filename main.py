@@ -16,6 +16,10 @@ Builder.load_string("""
 """)
 
 
+class Canvas_tuts(BoxLayout):
+    pass
+
+
 class ExternalKivy(BoxLayout):
     pass
 
