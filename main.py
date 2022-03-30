@@ -8,6 +8,11 @@ from kivy.uix.pagelayout import PageLayout
 from kivy.uix.stacklayout import StackLayout
 import random
 
+
+class Image_Viewer(BoxLayout):
+    pass
+
+
 Builder.load_string("""
 <ExternalKivy>:
     Button:
