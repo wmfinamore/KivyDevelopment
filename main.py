@@ -9,6 +9,17 @@ from kivy.uix.stacklayout import StackLayout
 import random
 
 
+class My_ScreenManager(BoxLayout):
+
+    def firstBtn(self, SM):
+        SM.current = "second"
+        SM.transition.direction = "left"
+
+    def secondBtn(self, SM):
+        SM.current = "first"
+        SM.transition.direction = "right"
+
+
 class Image_Viewer(BoxLayout):
     pass
 
