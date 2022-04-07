@@ -1,15 +1,19 @@
-MainInterfaceAnimation:
+#: import utils kivy.utils
+
+MainInterface_2:
+
     canvas.before:
         Color:
             rgba: 1, 1, 1, 1
         Rectangle:
             pos: self.pos
             size: self.size
-    Label:
-        text: root.pert_val
-        pos: 250, 250
-        font_size: 24
-        color: 1,0,0,1
+    #Label:
+    #    text: root.pert_val
+    #    pos: 250, 250
+    #    font_size: 24
+    #    color: 1,0,0,1
+
 
 <CustomWidget>:
     pos: 100, 100
@@ -28,6 +32,17 @@ MainInterfaceAnimation:
             circle: (self.x, self.y, 50, 0, self.angle, self.segments)
             width: self.wid
 
+
+<CustomWidget_2>:
+    size: 100, 100
+    pos: 100, 100
+    hex_code: "#FFFFFF"
+    canvas:
+        Color:
+            rgba: utils.get_color_from_hex(self.hex_code)
+        Ellipse:
+            pos: self.pos
+            size: self.size
 
 <My_ScreenManager>:
     ScreenManager:

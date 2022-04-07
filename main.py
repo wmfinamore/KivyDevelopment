@@ -16,6 +16,39 @@ class CustomWidget(Widget):
     pass
 
 
+class CustomWidget_2(Widget):
+    pass
+
+
+class MainInterface_2(Widget):
+    cw = CustomWidget_2
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.cw()
+        circle_1 = self.cw(pos=(200, 300), size=(85, 85), hex_code="#50A3A4")
+        self.add_widget(circle_1)
+        circle_2 = self.cw(pos=(300, 300), size=(85, 85), hex_code="#FCAF38")
+        self.add_widget(circle_2)
+        self.circle_3 = self.cw(pos=(400, 300), size=(85, 85), hex_code="#F93553")
+        self.add_widget(self.circle_3)
+        # animations
+        anim1 = Animation(x=400, duration=1.8)
+        anim1.start(circle_1)
+        anim2 = Animation(pos=(300, 400), duration=.3)
+        anim2 += Animation(pos=(200, 400), duration=.3)
+        anim2 += Animation(pos=(200, 300), duration=.3)
+        anim2.start(circle_2)
+        anim2.bind(on_complete=self.motions3)
+
+    def motions3(self, *args):
+        anim3 = Animation(pos=(400, 400), duration=.3)
+        anim3 += Animation(pos=(300, 400), duration=.3)
+        anim3 += Animation(pos=(300, 300), duration=.3)
+        anim3.start(self.circle_3)
+
+
+
 class MainInterfaceAnimation(Widget):
     cw = ObjectProperty(CustomWidget)
     pert_val = StringProperty("0%")
