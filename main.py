@@ -23,8 +23,11 @@ class MainInterfaceAnimation(Widget):
         super().__init__(**kwargs)
         custom_wid = self.cw(pos=(300, 300))
         self.add_widget(custom_wid)
-        anim = Animation(angle=0)
-        anim.start(custom_wid)
+        custom_wid2 = self.cw(pos=(300, 300), angle=0, wid=5,
+                              cr=.9)
+        self.add_widget(custom_wid2)
+        anim = Animation(angle=360, duration=3, t='in_elastic')
+        anim.start(custom_wid2)
 
 
 class My_ScreenManager(BoxLayout):

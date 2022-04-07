@@ -11,9 +11,13 @@ MainInterfaceAnimation:
     size: 100, 100
     angle: 360
     wid: 8
+    cr: .1
+    cg: .1
+    cb: .1
+    ca: 1
     canvas:
         Color:
-            rgba: .1, .1, .1, 1
+            rgba: self.cr, self.cg, self.cb, self.ca
         Line:
             circle: (self.x, self.y, 50, 0, self.angle)
             width: self.wid
