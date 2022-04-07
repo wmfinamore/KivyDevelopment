@@ -5,6 +5,11 @@ MainInterfaceAnimation:
         Rectangle:
             pos: self.pos
             size: self.size
+    Label:
+        text: root.pert_val
+        pos: 250, 250
+        font_size: 24
+        color: 1,0,0,1
 
 <CustomWidget>:
     pos: 100, 100
@@ -15,11 +20,12 @@ MainInterfaceAnimation:
     cg: .1
     cb: .1
     ca: 1
+    segments: 30
     canvas:
         Color:
             rgba: self.cr, self.cg, self.cb, self.ca
         Line:
-            circle: (self.x, self.y, 50, 0, self.angle)
+            circle: (self.x, self.y, 50, 0, self.angle, self.segments)
             width: self.wid
 
 

@@ -1,7 +1,7 @@
 from kivy.animation import Animation
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.properties import StringProperty, ObjectProperty
+from kivy.properties import StringProperty, ObjectProperty, Clock
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
@@ -18,16 +18,27 @@ class CustomWidget(Widget):
 
 class MainInterfaceAnimation(Widget):
     cw = ObjectProperty(CustomWidget)
+    pert_val = StringProperty("0%")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        custom_wid = self.cw(pos=(300, 300))
+        self.cw()
+        Clock.schedule_interval(self.looper, 0.1)
+        custom_wid = self.cw(pos=(300, 300), wid=8)
         self.add_widget(custom_wid)
-        custom_wid2 = self.cw(pos=(300, 300), angle=0, wid=5,
-                              cr=.9)
-        self.add_widget(custom_wid2)
-        anim = Animation(angle=360, duration=3, t='in_elastic')
-        anim.start(custom_wid2)
+        self.custom_wid2 = self.cw(pos=(300, 300), angle=0, wid=5,
+                                   cr=.9)
+        self.add_widget(self.custom_wid2)
+        self.pert_val = str(self.custom_wid2.angle)
+        anim = Animation(angle=360, duration=3)
+        anim.start(self.custom_wid2)
+        sg_anim = self.cw(pos=(300, 500), wid=7, segments=10)
+        self.add_widget(sg_anim)
+        sg_animation = Animation(segments=3, duration=3)
+        sg_animation.start(sg_anim)
+
+    def looper(self, dt):
+        self.pert_val = str(int(self.custom_wid2.angle/360 * 100))+'%'
 
 
 class My_ScreenManager(BoxLayout):
@@ -154,9 +165,9 @@ class Game(BoxLayout):
         r = random.randint(1, 10)
         g = random.randint(1, 10)
         b = random.randint(1, 10)
-        R = r/10
-        G = g/10
-        B = b/10
+        R = r / 10
+        G = g / 10
+        B = b / 10
         btn = Button(text="Button {}".format(self.i), size_hint=(None, None), size=(100, 100),
                      background_color=(R, G, B), background_normal="", font_size=20)
         self.btn_list.append(btn)
@@ -167,9 +178,9 @@ class Game(BoxLayout):
 
     def remove_btn(self):
         if self.i > 0:
-            self.ids.stacker.remove_widget(self.btn_list[self.i-1])
-            print("Button {} Removed".format(self.i-1))
-            if self.i-1 >= 0:
+            self.ids.stacker.remove_widget(self.btn_list[self.i - 1])
+            print("Button {} Removed".format(self.i - 1))
+            if self.i - 1 >= 0:
                 self.i -= 1
 
 
