@@ -1,6 +1,22 @@
 MainInterfaceAnimation:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
 
-<MainInterfaceAnimation>:
+<CustomWidget>:
+    pos: 100, 100
+    size: 100, 100
+    angle: 360
+    wid: 8
+    canvas:
+        Color:
+            rgba: .1, .1, .1, 1
+        Line:
+            circle: (self.x, self.y, 50, 0, self.angle)
+            width: self.wid
 
 
 <My_ScreenManager>:

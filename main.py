@@ -1,7 +1,7 @@
 from kivy.animation import Animation
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
@@ -12,24 +12,19 @@ import random
 from kivy.uix.widget import Widget
 
 
+class CustomWidget(Widget):
+    pass
+
+
 class MainInterfaceAnimation(Widget):
+    cw = ObjectProperty(CustomWidget)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.btn = Button(text="Hi", size=(200, 100), pos=(100, 100))
-        self.btn2 = Button(text="Hello", size=(200, 100), pos=(100, 200))
-        self.btn.bind(on_press=self.motion)
-        self.btn2.bind(on_press=self.motion)
-        self.add_widget(self.btn)
-        self.add_widget(self.btn2)
-
-    def motion(self, event):
-        x, y = self.btn.pos
-        if x == 500:
-            anim = Animation(x=200, duration=5, t='in_bounce') # durantion in seconds
-        else:
-            anim = Animation(x=500, duration=3, t='in_elastic')
-        anim.start(self.btn)
-        anim.start(self.btn2)
+        custom_wid = self.cw(pos=(300, 300))
+        self.add_widget(custom_wid)
+        anim = Animation(angle=0)
+        anim.start(custom_wid)
 
 
 class My_ScreenManager(BoxLayout):
