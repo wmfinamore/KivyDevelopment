@@ -1,5 +1,6 @@
 from kivy.animation import Animation
 from kivy.app import App
+from kivy.core.audio import SoundLoader
 from kivy.lang import Builder
 from kivy.properties import StringProperty, ObjectProperty, Clock
 from kivy.uix.boxlayout import BoxLayout
@@ -25,6 +26,13 @@ class MainInterface_2(Widget):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.music = SoundLoader.load("House_Lannister.mp3")
+        if self.music:
+            self.music.play()
+            print(self.music.length)
+            self.music.volume = 0.2
+        else:
+            pass
         self.cw()
         circle_1 = self.cw(pos=(200, 300), size=(85, 85), hex_code="#50A3A4")
         self.add_widget(circle_1)
@@ -46,7 +54,6 @@ class MainInterface_2(Widget):
         anim3 += Animation(pos=(300, 400), duration=.3)
         anim3 += Animation(pos=(300, 300), duration=.3)
         anim3.start(self.circle_3)
-
 
 
 class MainInterfaceAnimation(Widget):
