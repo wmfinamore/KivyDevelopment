@@ -1,3 +1,4 @@
+from kivy.animation import Animation
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.properties import StringProperty
@@ -7,6 +8,28 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.pagelayout import PageLayout
 from kivy.uix.stacklayout import StackLayout
 import random
+
+from kivy.uix.widget import Widget
+
+
+class MainInterfaceAnimation(Widget):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.btn = Button(text="Hi", size=(200, 100), pos=(100, 100))
+        self.btn2 = Button(text="Hello", size=(200, 100), pos=(100, 200))
+        self.btn.bind(on_press=self.motion)
+        self.btn2.bind(on_press=self.motion)
+        self.add_widget(self.btn)
+        self.add_widget(self.btn2)
+
+    def motion(self, event):
+        x, y = self.btn.pos
+        if x == 500:
+            anim = Animation(x=200, duration=5, t='in_bounce') # durantion in seconds
+        else:
+            anim = Animation(x=500, duration=3, t='in_elastic')
+        anim.start(self.btn)
+        anim.start(self.btn2)
 
 
 class My_ScreenManager(BoxLayout):
